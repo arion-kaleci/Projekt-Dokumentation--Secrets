@@ -1,0 +1,15 @@
+name: VMware Passwort Test   
+on: [push]                   
+
+jobs:
+  test-vmware:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v3   
+
+      - name: Passwort in eine Datei schreiben
+        run: echo "${{ secrets.PASSWORT_VMWARE }}" > password.txt  
+
+      - name: Passwort auslesen
+        run: cat password.txt  
